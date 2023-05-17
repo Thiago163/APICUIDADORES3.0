@@ -4,15 +4,15 @@
   </kbd>
 </div>
 
-# API Cuidadores 2.0
+# API Cuidadores 3.0
 
-A API Cuidadores 2.0 é uma aplicação que permite aos usuários se cadastrarem como cuidadores ou usuários, além de adicionar favoritos, estrelas e usuários invisíveis, ao contrário da versão anterior, API Cuidadores 1.0.
+A API Cuidadores 2.0 é uma aplicação que permite aos usuários se cadastrarem como cuidadores ou usuários, além de adicionar favoritos, estrelas e usuários invisíveis, ao contrário da versão anterior, API Cuidadores 2.0.
 
 ## Informações do Projeto
 
 | Criador do Projeto |Última Data de Modificação|
 | ------------------ |--------------------------|
-| Thiago Silva Da Cruz | 2023-05-14             |
+| Thiago Silva Da Cruz | 2023-05-17             |
 
 ## Como Utilizar a API
 
@@ -27,9 +27,6 @@ Utilize as rotas disponíveis em sua aplicação.
 
 - `/cuidadores`: retorna a lista de cuidadores
 - `/usuarios`: retorna a lista de usuários
-- `/cidades`: retorna a lista de cidades
-- `/estados`: retorna a lista de estados
-- `/CE`: retorna a lista de cidades e estados
 - `/sexos`: retorna a lista de sexos disponíveis
 - `/favoritoscui`: retorna a lista de favoritos do usuário
 - `/estrelascui`: retorna a lista de estrelas do usuário
