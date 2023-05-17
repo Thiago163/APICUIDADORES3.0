@@ -18,7 +18,7 @@ namespace API_CUIDADORES.DAO
             {
                 var query = "SELECT ti.tipo, cui.id, cui.nome, cui.sobrenome, cui.data_de_nasc, cui.cpf, cui.celular, cui.endereco, " +
     "cui.cep, cui.email, cui.preco, cui.descricao, cui.imagem, " +
-    "cui.link, sx.sexo, cui.cidade, cui.estado, cui.municipio, cui.senha " +
+    "cui.link, sx.sexo, cui.cidade, cui.estado, cui.bairro, cui.senha " +
     "FROM cuidadores AS cui " +
     "JOIN sexos AS sx ON cui.sexos_id = sx.id " +
     "JOIN tipos AS ti ON cui.tipos_id = ti.id " +
@@ -52,7 +52,7 @@ namespace API_CUIDADORES.DAO
                             cuidador.sexo = dataReader["sexo"].ToString();
                             cuidador.cidade = dataReader["cidade"].ToString();
                             cuidador.estado = dataReader["estado"].ToString();
-                            cuidador.municipio = dataReader["municipio"].ToString();
+                            cuidador.bairro = dataReader["bairro"].ToString();
                             cuidador.senha = dataReader["senha"].ToString();
 
                             cuidadores.Add(cuidador);
@@ -73,9 +73,9 @@ namespace API_CUIDADORES.DAO
                 conexao.Open();
 
                 var query = @"INSERT INTO cuidadores (cidade, sexos_id, estado, nome, sobrenome, data_de_nasc, cpf, celular,
-                    endereco, cep, email, preco, senha, descricao, link, municipio, imagem)
+                    endereco, cep, email, preco, senha, descricao, link, bairro, imagem)
                   VALUES (@cidade, @sexos_id, @estado, @nome, @sobrenome, @data_de_nasc, @cpf, @celular,
-                          @endereco, @cep, @email, @preco, @senha, @descricao, @link, @municipio, @imagem)";
+                          @endereco, @cep, @email, @preco, @senha, @descricao, @link, @bairro, @imagem)";
 
                 var comando = new MySqlCommand(query, conexao);
 
@@ -94,7 +94,7 @@ namespace API_CUIDADORES.DAO
                 comando.Parameters.AddWithValue("@senha", cuidador.senha);
                 comando.Parameters.AddWithValue("@descricao", cuidador.descricao);
                 comando.Parameters.AddWithValue("@link", cuidador.link);
-                comando.Parameters.AddWithValue("@municipio", cuidador.municipio);
+                comando.Parameters.AddWithValue("@bairro", cuidador.bairro);
                 comando.Parameters.AddWithValue("@imagem", cuidador.imagem);
 
                 comando.ExecuteNonQuery();
@@ -144,7 +144,7 @@ namespace API_CUIDADORES.DAO
                         senha = @senha,
                         descricao = @descricao,
 			            link = @link,
-                        municipio = @municipio,
+                        bairro = @bairro,
                         imagem = @imagem
                   WHERE id = @id";
 
@@ -166,7 +166,7 @@ namespace API_CUIDADORES.DAO
             comando.Parameters.AddWithValue("@senha", cuidador.senha);
             comando.Parameters.AddWithValue("@descricao", cuidador.descricao);
             comando.Parameters.AddWithValue("@link", cuidador.link);
-            comando.Parameters.AddWithValue("@municipio", cuidador.municipio);
+            comando.Parameters.AddWithValue("@bairro", cuidador.bairro);
             comando.Parameters.AddWithValue("@imagem", cuidador.imagem);
 
             comando.ExecuteNonQuery();
