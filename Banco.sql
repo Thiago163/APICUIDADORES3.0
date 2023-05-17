@@ -31,7 +31,7 @@ CREATE TABLE usuarios (
     link varchar(400),
     cidade VARCHAR(255),
     estado VARCHAR(255),
-    municipio VARCHAR(255),
+    bairro VARCHAR(255),
     Imagem LONGTEXT,
     FOREIGN KEY (sexos_id) REFERENCES sexos(id),
     FOREIGN KEY (tipos_id) REFERENCES tipos(id)
@@ -55,7 +55,7 @@ CREATE TABLE cuidadores (
     link varchar(400),
     cidade VARCHAR(255),
     estado VARCHAR(255),
-    municipio VARCHAR(255),
+    bairro VARCHAR(255),
     Imagem LONGTEXT,
     FOREIGN KEY (sexos_id) REFERENCES sexos(id),
     FOREIGN KEY (tipos_id) REFERENCES tipos(id)
@@ -99,13 +99,13 @@ INSERT INTO tipos (id, tipo) VALUES (1, 'Ativo'), (2, 'Inativo'), (3, 'Desenvolv
 
 INSERT INTO sexos (id, sexo) VALUES (1, 'Masculino'), (2, 'Feminino'), (3, 'Não binário'), (4, 'Prefiro não responder');
 
-INSERT INTO usuarios (tipos_id, estado, cidade, municipio, nome, sobrenome, data_de_nasc, cpf, celular, endereco, cep, email, sexos_id, preco, senha, descricao, link, imagem)values
-(1, 'São Paulo', 'Sanatana de Parnaíba', 'Sanatana de Parnaíba', 'Luana', 'Alvez', '2021-11-05', 58854448868, 9289632897, 'estrada dos sonhos', '04522135', 'luana@gmail.com', 2, 10.10, 'pedro1samuel2', 'Meus filhos são uma peste, boa sorte.', 'https://play.google.com/store/', ''),
-(2, 'São Paulo', 'Sanatana de Parnaíba', 'Sanatana de Parnaíba', 'Marcos', 'Solza', '2021-11-05', 68854448868, 9489632897, 'estrada dos tesouros', '06522135', 'marcos@gmail.com', 1, 10.10, 'pedro1samuel2', 'Meus filhos são uma peste, boa sorte.', 'https://play.google.com/store/', '');
+INSERT INTO usuarios (tipos_id, estado, cidade, bairro, nome, sobrenome, data_de_nasc, cpf, celular, endereco, cep, email, sexos_id, preco, senha, descricao, link, imagem)values
+(1, 'São Paulo', 'Sanatana de Parnaíba', 'Cururuquara', 'Luana', 'Alvez', '2021-11-05', 58854448868, 9289632897, 'estrada dos sonhos', '04522135', 'luana@gmail.com', 2, 10.10, 'pedro1samuel2', 'Meus filhos são uma peste, boa sorte.', 'https://play.google.com/store/', ''),
+(2, 'São Paulo', 'Sanatana de Parnaíba', 'Cajamar', 'Marcos', 'Solza', '2021-11-05', 68854448868, 9489632897, 'estrada dos tesouros', '06522135', 'marcos@gmail.com', 1, 10.10, 'pedro1samuel2', 'Meus filhos são uma peste, boa sorte.', 'https://play.google.com/store/', '');
 
-INSERT INTO cuidadores (tipos_id, estado, cidade, municipio, nome, sobrenome, data_de_nasc, cpf, celular, endereco, cep, email, sexos_id, preco, senha, descricao, link, imagem)values
-(1, 'São Paulo', 'Sanatana de Parnaíba', 'Sanatana de Parnaíba', 'Luana', 'Alvez', '2021-11-05', 58854448868, 9289632897, 'estrada dos sonhos', '04522135', 'luana@gmail.com', 2, 10.10, 'pedro1samuel2', 'Sou um cuidador excelente.', 'https://play.google.com/store/', ''),
-(2, 'São Paulo', 'Sanatana de Parnaíba', 'Sanatana de Parnaíba', 'Marcos', 'Solza', '2021-11-05', 68854448868, 9489632897, 'estrada dos tesouros', '06522135', 'marcos@gmail.com', 1, 10.10, 'pedro1samuel2', 'Sou um cuidador excelente.', 'https://play.google.com/store/', '');
+INSERT INTO cuidadores (tipos_id, estado, cidade, bairro, nome, sobrenome, data_de_nasc, cpf, celular, endereco, cep, email, sexos_id, preco, senha, descricao, link, imagem)values
+(1, 'São Paulo', 'Sanatana de Parnaíba', 'Cajamar', 'Luana', 'Alvez', '2021-11-05', 58854448868, 9289632897, 'estrada dos sonhos', '04522135', 'luana@gmail.com', 2, 10.10, 'pedro1samuel2', 'Sou um cuidador excelente.', 'https://play.google.com/store/', ''),
+(2, 'São Paulo', 'Sanatana de Parnaíba', 'Cururuquara', 'Marcos', 'Solza', '2021-11-05', 68854448868, 9489632897, 'estrada dos tesouros', '06522135', 'marcos@gmail.com', 1, 10.10, 'pedro1samuel2', 'Sou um cuidador excelente.', 'https://play.google.com/store/', '');
 
 INSERT INTO favoritosusuarios (id, usuario_id, cuidador_id) VALUES (1, 2, 1), (2, 1, 2);
 
@@ -117,7 +117,7 @@ INSERT INTO estrelasusuario (id, estrela, cuidador_id, usuario_id) VALUES (1, 5,
 
 select ti.tipo, cui.id, cui.nome, cui.sobrenome, cui.data_de_nasc, cui.cpf, cui.celular, cui.endereco, 
 cui.cep, cui.email, cui.preco, cui.descricao, cui.imagem, 
-cui.link, sx.sexo, cui.cidade, cui.estado, cui.municipio, cui.senha from cuidadores as cui
+cui.link, sx.sexo, cui.cidade, cui.estado, cui.bairro, cui.senha from cuidadores as cui
  join sexos as sx on (cui.sexos_id = sx.id)
  join tipos as ti on (cui.tipos_id = ti.id)
  where tipos_id <> 2;
