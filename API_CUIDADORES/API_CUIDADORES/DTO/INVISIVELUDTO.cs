@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -25,7 +25,7 @@ namespace API_CUIDADORES.DTO
         public string sexo { get; set; }
         public string cidade { get; set; }
         public string estado { get; set; }
-        public string municipio { get; set; }
+        public string bairro { get; set; }
         public string senha { get; set; }
     }
 }
