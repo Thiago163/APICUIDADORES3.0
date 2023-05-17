@@ -72,16 +72,16 @@ namespace API_CUIDADORES.DAO
             {
                 conexao.Open();
 
-                var query = @"INSERT INTO usuarios (cidades_id, sexos_id, estados_id, nome, sobrenome, data_de_nasc, cpf, celular,
+                var query = @"INSERT INTO usuarios (cidade, sexos_id, estado, nome, sobrenome, data_de_nasc, cpf, celular,
                     endereco, cep, email, preco, senha, descricao, link, municipio, imagem)
-                  VALUES (@cidades_id, @sexos_id, @estados_id, @nome, @sobrenome, @data_de_nasc, @cpf, @celular,
+                  VALUES (@cidade, @sexos_id, @estado, @nome, @sobrenome, @data_de_nasc, @cpf, @celular,
                           @endereco, @cep, @email, @preco, @senha, @descricao, @link, @municipio, @imagem)";
 
                 var comando = new MySqlCommand(query, conexao);
 
-                comando.Parameters.AddWithValue("@cidades_id", usuario.cidade);
+                comando.Parameters.AddWithValue("@cidade", usuario.cidade);
                 comando.Parameters.AddWithValue("@sexos_id", usuario.sexo);
-                comando.Parameters.AddWithValue("@estados_id", usuario.estado);
+                comando.Parameters.AddWithValue("@estado", usuario.estado);
                 comando.Parameters.AddWithValue("@nome", usuario.nome);
                 comando.Parameters.AddWithValue("@sobrenome", usuario.sobrenome);
                 comando.Parameters.AddWithValue("@data_de_nasc", usuario.data_de_nasc);
@@ -126,13 +126,13 @@ namespace API_CUIDADORES.DAO
             var conexao = ConnectionFactory.Build();
             conexao.Open();
 
-            var query = @"UPDATE usuarios SET 
+            var query = @"UPDATE cuidadores SET 
                         tipos_id = @tipos_id,
                         nome = @nome,
                         sobrenome = @sobrenome,
-                        cidades_id = @cidades_id,
+                        cidade = @cidade,
 			            sexos_id = @sexos_id,
-			            estados_id = @estados_id,
+			            estado = @estado,
                         data_de_nasc = @data_de_nasc,
                         cpf = @cpf,
                         celular = @celular,
@@ -150,9 +150,9 @@ namespace API_CUIDADORES.DAO
             var comando = new MySqlCommand(query, conexao);
             comando.Parameters.AddWithValue("@id", usuario.id);
             comando.Parameters.AddWithValue("@tipos_id", usuario.tipo);
-            comando.Parameters.AddWithValue("@cidades_id", usuario.cidade);
+            comando.Parameters.AddWithValue("@cidade", usuario.cidade);
             comando.Parameters.AddWithValue("@sexos_id", usuario.sexo);
-            comando.Parameters.AddWithValue("@estados_id", usuario.estado);
+            comando.Parameters.AddWithValue("@estado", usuario.estado);
             comando.Parameters.AddWithValue("@nome", usuario.nome);
             comando.Parameters.AddWithValue("@sobrenome", usuario.sobrenome);
             comando.Parameters.AddWithValue("@data_de_nasc", usuario.data_de_nasc);
