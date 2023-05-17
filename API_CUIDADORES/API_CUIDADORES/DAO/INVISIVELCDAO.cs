@@ -72,16 +72,16 @@ namespace API_CUIDADORES.DAO
             {
                 conexao.Open();
 
-                var query = @"INSERT INTO cuidadores (cidades_id, sexos_id, estados_id, nome, sobrenome, data_de_nasc, cpf, celular,
+                var query = @"INSERT INTO cuidadores (cidade, sexos_id, estado, nome, sobrenome, data_de_nasc, cpf, celular,
                     endereco, cep, email, preco, senha, descricao, link, municipio, imagem)
-                  VALUES (@cidades_id, @sexos_id, @estados_id, @nome, @sobrenome, @data_de_nasc, @cpf, @celular,
+                  VALUES (@cidade, @sexos_id, @estado, @nome, @sobrenome, @data_de_nasc, @cpf, @celular,
                           @endereco, @cep, @email, @preco, @senha, @descricao, @link, @municipio, @imagem)";
 
                 var comando = new MySqlCommand(query, conexao);
 
-                comando.Parameters.AddWithValue("@cidades_id", cuidador.cidade);
+                comando.Parameters.AddWithValue("@cidade", cuidador.cidade);
                 comando.Parameters.AddWithValue("@sexos_id", cuidador.sexo);
-                comando.Parameters.AddWithValue("@estados_id", cuidador.estado);
+                comando.Parameters.AddWithValue("@estado", cuidador.estado);
                 comando.Parameters.AddWithValue("@nome", cuidador.nome);
                 comando.Parameters.AddWithValue("@sobrenome", cuidador.sobrenome);
                 comando.Parameters.AddWithValue("@data_de_nasc", cuidador.data_de_nasc);
@@ -131,9 +131,9 @@ namespace API_CUIDADORES.DAO
                         tipos_id = @tipos_id,
                         nome = @nome,
                         sobrenome = @sobrenome,
-                        cidades_id = @cidades_id,
+                        cidade = @cidade,
 			            sexos_id = @sexos_id,
-			            estados_id = @estados_id,
+			            estado = @estado,
                         data_de_nasc = @data_de_nasc,
                         cpf = @cpf,
                         celular = @celular,
@@ -151,9 +151,9 @@ namespace API_CUIDADORES.DAO
             var comando = new MySqlCommand(query, conexao);
             comando.Parameters.AddWithValue("@id", cuidador.id);
             comando.Parameters.AddWithValue("@tipos_id", cuidador.tipo);
-            comando.Parameters.AddWithValue("@cidades_id", cuidador.cidade);
+            comando.Parameters.AddWithValue("@cidade", cuidador.cidade);
             comando.Parameters.AddWithValue("@sexos_id", cuidador.sexo);
-            comando.Parameters.AddWithValue("@estados_id", cuidador.estado);
+            comando.Parameters.AddWithValue("@estado", cuidador.estado);
             comando.Parameters.AddWithValue("@nome", cuidador.nome);
             comando.Parameters.AddWithValue("@sobrenome", cuidador.sobrenome);
             comando.Parameters.AddWithValue("@data_de_nasc", cuidador.data_de_nasc);
