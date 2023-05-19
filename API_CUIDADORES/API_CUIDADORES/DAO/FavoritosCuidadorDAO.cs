@@ -14,7 +14,7 @@ namespace API_CUIDADORES.DAO
             var conexao = ConnectionFactory.Build();
             conexao.Open();
 
-            var query = "SELECT c.*, ti.tipo, sx.sexo, fu.usuario_id, fu.cuidador_id " +
+            var query = "SELECT fu.id, c.*, ti.tipo, sx.sexo, fu.usuario_id, fu.cuidador_id " +
             "FROM favoritoscuidadores AS fu " +
             "JOIN usuarios AS c ON fu.usuario_id = c.id " +
             "JOIN tipos AS ti ON c.tipos_id = ti.id " +
