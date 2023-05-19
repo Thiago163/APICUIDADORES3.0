@@ -14,7 +14,12 @@ namespace API_CUIDADORES.DAO
             var conexao = ConnectionFactory.Build();
             conexao.Open();
 
-            var query = "SELECT * FROM favoritosusuarios";
+            var query = "SELECT c.*, ti.tipo, sx.sexo, fu.usuario_id, fu.cuidador_id " +
+            "FROM favoritosusuarios AS fu " +
+            "JOIN cuidadores AS c ON fu.cuidador_id = c.id " +
+            "JOIN tipos AS ti ON c.tipos_id = ti.id " +
+            "JOIN sexos AS sx ON c.sexos_id = sx.id " +
+            "WHERE c.tipos_id <> 2;";
 
             var comando = new MySqlCommand(query, conexao);
             var dataReader = comando.ExecuteReader();
@@ -27,6 +32,27 @@ namespace API_CUIDADORES.DAO
                 favorito.id = Convert.ToInt32(dataReader["id"]);
                 favorito.usuario_id = Convert.ToInt32(dataReader["usuario_id"]);
                 favorito.cuidador_id = Convert.ToInt32(dataReader["cuidador_id"]);
+                // dados externos
+                favorito.cuidador = new CuidadoresDTO();
+                favorito.cuidador.tipo = dataReader["tipo"].ToString();
+                favorito.cuidador.id = Convert.ToInt32(dataReader["id"]);
+                favorito.cuidador.nome = dataReader["nome"].ToString();
+                favorito.cuidador.sobrenome = dataReader["sobrenome"].ToString();
+                favorito.cuidador.data_de_nasc = Convert.ToDateTime(dataReader["data_de_nasc"]);
+                favorito.cuidador.cpf = dataReader["cpf"].ToString();
+                favorito.cuidador.celular = dataReader["celular"].ToString();
+                favorito.cuidador.endereco = dataReader["endereco"].ToString();
+                favorito.cuidador.cep = dataReader["cep"].ToString();
+                favorito.cuidador.email = dataReader["email"].ToString();
+                favorito.cuidador.preco = Convert.ToDouble(dataReader["preco"]);
+                favorito.cuidador.descricao = dataReader["descricao"].ToString();
+                favorito.cuidador.imagem = dataReader["imagem"].ToString();
+                favorito.cuidador.link = dataReader["link"].ToString();
+                favorito.cuidador.sexo = dataReader["sexo"].ToString();
+                favorito.cuidador.cidade = dataReader["cidade"].ToString();
+                favorito.cuidador.estado = dataReader["estado"].ToString();
+                favorito.cuidador.bairro = dataReader["bairro"].ToString();
+                favorito.cuidador.senha = dataReader["senha"].ToString();
 
                 favoritos.Add(favorito);
             }
@@ -35,6 +61,7 @@ namespace API_CUIDADORES.DAO
 
             return favoritos;
         }
+
 
         public void Cadastrar(FavoritosUsuarioDTO favorito)
         {
