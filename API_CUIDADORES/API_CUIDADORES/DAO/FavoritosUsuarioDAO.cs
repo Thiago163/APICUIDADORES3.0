@@ -14,7 +14,7 @@ namespace API_CUIDADORES.DAO
             var conexao = ConnectionFactory.Build();
             conexao.Open();
 
-            var query = "SELECT c.*, ti.tipo, sx.sexo, fu.usuario_id, fu.cuidador_id " +
+            var query = "SELECT fu.id, c.*, ti.tipo, sx.sexo, fu.usuario_id, fu.cuidador_id " +
             "FROM favoritosusuarios AS fu " +
             "JOIN cuidadores AS c ON fu.cuidador_id = c.id " +
             "JOIN tipos AS ti ON c.tipos_id = ti.id " +
@@ -82,17 +82,18 @@ namespace API_CUIDADORES.DAO
 
         public void Remover(int id)
         {
-            var conexao = ConnectionFactory.Build();
-            conexao.Open();
+            using (var conexao = ConnectionFactory.Build())
+            {
+                conexao.Open();
 
-            var query = @"Delete from favoritosusuarios where id=@id";
+                var query = "DELETE FROM favoritosusuarios WHERE id = @id";
 
-            var comando = new MySqlCommand(query, conexao);
-            comando.Parameters.AddWithValue("@id", id);
-
-            comando.ExecuteNonQuery();
-            conexao.Close();
-
+                using (var comando = new MySqlCommand(query, conexao))
+                {
+                    comando.Parameters.AddWithValue("@id", id);
+                    comando.ExecuteNonQuery();
+                }
+            }
         }
 
         public void Alterar(FavoritosUsuarioDTO favorito)
