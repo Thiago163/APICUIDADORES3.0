@@ -62,14 +62,13 @@ namespace API_CUIDADORES.DAO
             return favoritos;
         }
 
-
         public void Cadastrar(FavoritosUsuarioDTO favorito)
         {
             var conexao = ConnectionFactory.Build();
             conexao.Open();
 
-            var query = @"INSERT INTO favoritosusuarios (usuario_id, cuidador_id)
-                          VALUES (@usuario_id, @cuidador_id)";
+            var query = @"INSERT IGNORE INTO favoritosusuarios (usuario_id, cuidador_id)
+                  VALUES (@usuario_id, @cuidador_id)";
 
             var comando = new MySqlCommand(query, conexao);
             comando.Parameters.AddWithValue("@usuario_id", favorito.usuario_id);
