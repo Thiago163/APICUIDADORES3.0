@@ -67,8 +67,8 @@ namespace API_CUIDADORES.DAO
             var conexao = ConnectionFactory.Build();
             conexao.Open();
 
-            var query = @"INSERT INTO favoritoscuidadores (usuario_id, cuidador_id)
-                          VALUES (@usuario_id, @cuidador_id)";
+            var query = @"INSERT IGNORE INTO favoritoscuidadores (usuario_id, cuidador_id)
+                  VALUES (@usuario_id, @cuidador_id)";
 
             var comando = new MySqlCommand(query, conexao);
             comando.Parameters.AddWithValue("@usuario_id", favorito.usuario_id);
