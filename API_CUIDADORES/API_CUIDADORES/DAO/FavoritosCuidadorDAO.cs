@@ -18,8 +18,7 @@ namespace API_CUIDADORES.DAO
             "FROM favoritoscuidadores AS fu " +
             "JOIN usuarios AS c ON fu.usuario_id = c.id " +
             "JOIN tipos AS ti ON c.tipos_id = ti.id " +
-            "JOIN sexos AS sx ON c.sexos_id = sx.id " +
-            "WHERE c.tipos_id <> 2;";
+            "JOIN sexos AS sx ON c.sexos_id = sx.id;";
 
             var comando = new MySqlCommand(query, conexao);
             var dataReader = comando.ExecuteReader();
