@@ -78,17 +78,19 @@ namespace API_CUIDADORES.DAO
             conexao.Close();
         }
 
-        public void Remover(int id)
+        public void Remover(int usuario_id, int cuidador_id)
         {
             using (var conexao = ConnectionFactory.Build())
             {
                 conexao.Open();
 
-                var query = "DELETE FROM favoritosusuarios WHERE id = @id";
+                var query = "DELETE FROM favoritosusuarios WHERE usuario_id = @usuario_id and cuidador_id = @cuidador_id";
 
                 using (var comando = new MySqlCommand(query, conexao))
                 {
-                    comando.Parameters.AddWithValue("@id", id);
+                    comando.Parameters.AddWithValue("@usuario_id", usuario_id);
+                    comando.Parameters.AddWithValue("@cuidador_id", cuidador_id);
+
                     comando.ExecuteNonQuery();
                 }
             }
