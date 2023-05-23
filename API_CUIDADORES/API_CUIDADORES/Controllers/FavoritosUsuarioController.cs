@@ -1,4 +1,4 @@
-﻿using API_CUIDADORES.DAO;
+using API_CUIDADORES.DAO;
 using API_CUIDADORES.DTO;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -37,10 +37,10 @@ namespace API_CUIDADORES.Controllers
         }
 
         [HttpDelete]
-        public IActionResult Remover(int id)
+        public IActionResult Remover(int usuario_id, int cuidador_id)
         {
             FavoritosUsuarioDAO dao = new FavoritosUsuarioDAO();
-            dao.Remover(id);
+            dao.Remover(usuario_id, cuidador_id);
             return Ok();
         }
 
