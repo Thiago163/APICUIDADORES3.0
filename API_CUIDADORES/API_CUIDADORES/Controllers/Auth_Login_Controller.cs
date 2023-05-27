@@ -13,12 +13,12 @@ namespace API_CUIDADORES.Controllers
 {
     [Route("api/loginusu")]
     [ApiController]
-    public class Auth_Login_Controller : ControllerBase
+    public class AuthUsuariosController : ControllerBase
     {
         private readonly UsuariosDAO usuariosDAO;
         private readonly CuidadoresDAO cuidadoresDAO;
 
-        public Auth_Login_Controller()
+        public AuthUsuariosController()
         {
             usuariosDAO = new UsuariosDAO();
             cuidadoresDAO = new CuidadoresDAO();
