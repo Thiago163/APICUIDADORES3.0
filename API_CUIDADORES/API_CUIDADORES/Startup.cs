@@ -46,9 +46,10 @@ namespace API_CUIDADORES
             }
 
             app.UseCors(builder => builder
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader());
+            .AllowAnyOrigin()
+            .AllowAnyMethod()
+            .AllowAnyHeader());
+
 
             app.UseHttpsRedirection();
             app.UseMvc();
