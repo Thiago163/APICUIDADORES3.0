@@ -15,8 +15,8 @@ namespace API_CUIDADORES.Controllers
     [ApiController]
     public class AuthUsuariosController : ControllerBase
     {
-        private readonly UsuariosDAO usuariosDAO;
-        private readonly CuidadoresDAO cuidadoresDAO;
+        public readonly UsuariosDAO usuariosDAO;
+        public readonly CuidadoresDAO cuidadoresDAO;
 
         public AuthUsuariosController()
         {
@@ -37,7 +37,7 @@ namespace API_CUIDADORES.Controllers
             return Ok(token);
         }
 
-        string GenerateJwtToken(string username, string secretKey)
+        public string GenerateJwtToken(string username, string secretKey)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -45,11 +45,13 @@ namespace API_CUIDADORES.Controllers
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Email, "email-do-usuario")
+                new Claim(ClaimTypes.Email, "email-do-usuario"),
+                new Claim(ClaimTypes.SerialNumber, "cpf-do-usuario")
             };
 
             var token = new JwtSecurityToken(
-                "", "",
+                "",
+                "",
                 claims,
                 expires: DateTime.UtcNow.AddMinutes(30),
                 signingCredentials: credentials
@@ -63,7 +65,7 @@ namespace API_CUIDADORES.Controllers
     [ApiController]
     public class AuthCuidadoresController : ControllerBase
     {
-        private readonly CuidadoresDAO cuidadoresDAO;
+        public readonly CuidadoresDAO cuidadoresDAO;
 
         public AuthCuidadoresController()
         {
@@ -83,7 +85,7 @@ namespace API_CUIDADORES.Controllers
             return Ok(token);
         }
 
-        string GenerateJwtToken(string username, string secretKey)
+        public string GenerateJwtToken(string username, string secretKey)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
@@ -91,11 +93,13 @@ namespace API_CUIDADORES.Controllers
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Email, "email-do-cuidador")
+                new Claim(ClaimTypes.Email, "email-do-cuidador"),
+                new Claim(ClaimTypes.SerialNumber, "cpf-do-cuidador")
             };
 
             var token = new JwtSecurityToken(
-                "", "",
+                "",
+                "",
                 claims,
                 expires: DateTime.UtcNow.AddMinutes(30),
                 signingCredentials: credentials
