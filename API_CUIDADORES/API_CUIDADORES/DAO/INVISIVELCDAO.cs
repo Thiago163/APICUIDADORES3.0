@@ -45,7 +45,6 @@ namespace API_CUIDADORES.DAO
                             cuidador.email = dataReader["email"].ToString();
                             cuidador.preco = double.Parse(dataReader["preco"].ToString());
                             cuidador.descricao = dataReader["descricao"].ToString();
-                            cuidador.descricao = dataReader["descricao"].ToString();
                             cuidador.data_de_nasc = dataReader.GetDateTime("data_de_nasc");
                             cuidador.imagem = dataReader["imagem"].ToString();
                             cuidador.link = dataReader["link"].ToString();
