@@ -10,6 +10,8 @@ namespace API_CUIDADORES.Controllers
 {
     [Route("api/usuarios")]
     [ApiController]
+    [Authorize]
+
     public class UsuariosController : ControllerBase
     {
         [HttpGet]
