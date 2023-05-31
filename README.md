@@ -12,7 +12,7 @@ A API Cuidadores 3.0 é uma aplicação que permite aos usuários se cadastrarem
 
 | Criador do Projeto |Última Data de Modificação|
 | ------------------ |--------------------------|
-| Thiago Silva Da Cruz | 2023-05-17             |
+| Thiago Silva Da Cruz | 2023-05-30             |
 
 ## Como Utilizar a API
 
