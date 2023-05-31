@@ -32,7 +32,7 @@ namespace API_CUIDADORES.Controllers
             // Por exemplo, verificar as credenciais do usuário no banco de dados
 
             // Se a autenticação for bem-sucedida, você pode gerar um token JWT
-            var token = GenerateJwtToken("nome-do-usuario", "PU8a9W4sv2opkqlOwmgsn3w3Innlc4D5");
+            var token = GenerateJwtToken("nome-do-usuario", "CcjwU9RgQYolvyxQQew7oCCcLJcnzUe89KWlD1Hf2BXdEQh0YKiieyFIoXea2Ig");
 
             if (!string.IsNullOrEmpty(token))
             {
@@ -88,7 +88,7 @@ namespace API_CUIDADORES.Controllers
             // Por exemplo, verificar as credenciais do cuidador no banco de dados
 
             // Se a autenticação for bem-sucedida, você pode gerar um token JWT
-            var token = GenerateJwtToken("nome-do-cuidador", "PU8a9W4sv2opkqlOwmgsn3w3Innlc4D5");
+            var token = GenerateJwtToken("nome-do-cuidador", "CcjwU9RgQYolvyxQQew7oCCcLJcnzUe89KWlD1Hf2BXdEQh0YKiieyFIoXea2Ig");
 
             if (!string.IsNullOrEmpty(token))
             {
