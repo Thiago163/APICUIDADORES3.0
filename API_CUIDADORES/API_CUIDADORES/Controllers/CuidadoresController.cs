@@ -11,6 +11,7 @@ namespace API_CUIDADORES.Controllers
     [Route("api/[controller]")]
     [ApiController]
     [Authorize]
+
     public class CuidadoresController : ControllerBase
     {
         [HttpGet]
