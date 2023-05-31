@@ -10,6 +10,8 @@ namespace API_CUIDADORES.Controllers
 {
     [Route("api/invisivelusu")]
     [ApiController]
+    [Authorize]
+
     public class INVISIVELUUontroller : ControllerBase
     {
         [HttpGet]
