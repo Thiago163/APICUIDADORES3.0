@@ -6,7 +6,7 @@
 
 # API Cuidadores 3.0
 
-A API Cuidadores 3.0 é uma aplicação que permite aos usuários se cadastrarem como cuidadores ou usuários, além de adicionar favoritos, estrelas e usuários invisíveis, ao contrário da versão anterior, API Cuidadores 2.0.
+A API Cuidadores 3.0 é uma aplicação que permite aos usuários se cadastrarem como cuidadores ou usuários, além de adicionar favoritos, estrelas e usuários invisíveis.
 
 ## Informações do Projeto
 
