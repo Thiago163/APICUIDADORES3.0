@@ -9,6 +9,49 @@ namespace API_CUIDADORES.DAO
 {
     public class UsuariosDAO
     {
+        public UsuariosDTO Login(string cpfOuEmail, string senha)
+        {
+            var usuario = new UsuariosDTO();
+
+            using (var conexao = ConnectionFactory.Build())
+            {
+                var query = "SELECT * FROM usuarios WHERE (cpf = @cpfOuEmail OR email = @cpfOuEmail) AND senha = @senha";
+
+                using (var comando = new MySqlCommand(query, conexao))
+                {
+                    comando.Parameters.AddWithValue("@cpfOuEmail", cpfOuEmail);
+                    comando.Parameters.AddWithValue("@senha", senha);
+
+                    conexao.Open();
+
+                    using (var dataReader = comando.ExecuteReader())
+                    {
+                        if (dataReader.Read())
+                        {
+                            usuario.id = int.Parse(dataReader["id"].ToString());
+                            usuario.nome = dataReader["nome"].ToString();
+                            usuario.sobrenome = dataReader["sobrenome"].ToString();
+                            usuario.data_de_nasc = dataReader.GetDateTime("data_de_nasc");
+                            usuario.cpf = dataReader["cpf"].ToString();
+                            usuario.celular = dataReader["celular"].ToString();
+                            usuario.endereco = dataReader["endereco"].ToString();
+                            usuario.cep = dataReader["cep"].ToString();
+                            usuario.email = dataReader["email"].ToString();
+                            usuario.preco = double.Parse(dataReader["preco"].ToString());
+                            usuario.descricao = dataReader["descricao"].ToString();
+                            usuario.imagem = dataReader["imagem"].ToString();
+                            usuario.link = dataReader["link"].ToString();
+                            usuario.sexo = dataReader["sexo"].ToString();
+                            usuario.cidade = dataReader["cidade"].ToString();
+                            usuario.estado = dataReader["estado"].ToString();
+                            usuario.bairro = dataReader["bairro"].ToString();
+                        }
+                    }
+                }
+            }
+
+            return usuario;
+        }
 
         public List<UsuariosDTO> Listar()
         {
