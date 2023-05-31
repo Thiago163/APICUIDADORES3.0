@@ -34,7 +34,15 @@ namespace API_CUIDADORES.Controllers
             // Se a autenticação for bem-sucedida, você pode gerar um token JWT
             var token = GenerateJwtToken("nome-do-usuario", "PU8a9W4sv2opkqlOwmgsn3w3Innlc4D5");
 
-            return Ok(token);
+            if (!string.IsNullOrEmpty(token))
+            {
+                return Ok(token);
+            }
+            else
+            {
+                // Lógica de tratamento caso o token seja nulo ou vazio
+                return BadRequest("Falha ao gerar o token JWT");
+            }
         }
 
         public string GenerateJwtToken(string username, string secretKey)
@@ -82,7 +90,15 @@ namespace API_CUIDADORES.Controllers
             // Se a autenticação for bem-sucedida, você pode gerar um token JWT
             var token = GenerateJwtToken("nome-do-cuidador", "PU8a9W4sv2opkqlOwmgsn3w3Innlc4D5");
 
-            return Ok(token);
+            if (!string.IsNullOrEmpty(token))
+            {
+                return Ok(token);
+            }
+            else
+            {
+                // Lógica de tratamento caso o token seja nulo ou vazio
+                return BadRequest("Falha ao gerar o token JWT");
+            }
         }
 
         public string GenerateJwtToken(string username, string secretKey)
