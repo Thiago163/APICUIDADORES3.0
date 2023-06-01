@@ -10,7 +10,6 @@ namespace API_CUIDADORES.Controllers
 {
     [Route("api/invisivelcui")]
     [ApiController]
-    [Authorize]
 
     public class INVISIVELCController : ControllerBase
     {
