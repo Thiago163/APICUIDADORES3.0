@@ -79,13 +79,19 @@ namespace API_CUIDADORES.Controllers
 
         [HttpGet]
         [Route("Login")]
-        public IActionResult Login()
+        public IActionResult Login([FromForm] string login, [FromForm] string senha)
         {
-            // Aqui você pode implementar a lógica de autenticação do cuidador
-            // Por exemplo, verificar as credenciais do cuidador no banco de dados
 
-            // Se a autenticação for bem-sucedida, você pode gerar um token JWT
-            var token = GenerateJwtToken("nome", "16b564d8e7b9b32a36edf518df48e40c35aeb933ce4abab8e75fd3e5ef89a7f6");
+            var cuidadoresDAO = new CuidadoresDAO();
+
+            var cuidador = cuidadoresDAO.Login(login, senha);
+
+            if (cuidador.id == 0)
+            {
+                return BadRequest("Usuário ou senha inválidos");
+            }
+
+            var token = GenerateJwtToken(cuidador, "16b564d8e7b9b32a36edf518df48e40c35aeb933ce4abab8e75fd3e5ef89a7f6");
 
             if (!string.IsNullOrEmpty(token))
             {
@@ -98,16 +104,16 @@ namespace API_CUIDADORES.Controllers
             }
         }
 
-        public string GenerateJwtToken(string username, string secretKey)
+        public string GenerateJwtToken(CuidadoresDTO cuidador, string secretKey)
         {
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(secretKey));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Email, "email"),
-                new Claim(ClaimTypes.SerialNumber, "cpf")
+                new Claim("ID", cuidador.id.ToString()),
+                new Claim("Email", cuidador.email),
+                new Claim("cpf", cuidador.cpf)
             };
 
             var token = new JwtSecurityToken(
