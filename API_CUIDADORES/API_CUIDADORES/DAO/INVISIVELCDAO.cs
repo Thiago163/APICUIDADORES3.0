@@ -16,7 +16,7 @@ namespace API_CUIDADORES.DAO
 
             using (var conexao = ConnectionFactory.Build())
             {
-                var query = "SELECT ti.tipo, cui.id, cui.nome, cui.sobrenome, cui.data_de_nasc, cui.cpf, cui.celular, cui.endereco, " +
+                 var query = "SELECT ti.tipo, cui.id, cui.nome, cui.sobrenome, cui.data_de_nasc, cui.celular, cui.endereco, " +
     "cui.cep, cui.email, cui.preco, cui.descricao, cui.imagem, " +
     "cui.link, sx.sexo, cui.cidade, cui.estado, cui.bairro " +
     "FROM cuidadores AS cui " +
@@ -38,11 +38,8 @@ namespace API_CUIDADORES.DAO
                             cuidador.id = int.Parse(dataReader["id"].ToString());
                             cuidador.nome = dataReader["nome"].ToString();
                             cuidador.sobrenome = dataReader["sobrenome"].ToString();
-                            cuidador.cpf = dataReader["cpf"].ToString();
                             cuidador.celular = dataReader["celular"].ToString();
                             cuidador.endereco = dataReader["endereco"].ToString();
-                            cuidador.cep = dataReader["cep"].ToString();
-                            cuidador.email = dataReader["email"].ToString();
                             cuidador.preco = double.Parse(dataReader["preco"].ToString());
                             cuidador.descricao = dataReader["descricao"].ToString();
                             cuidador.data_de_nasc = dataReader.GetDateTime("data_de_nasc");
@@ -52,7 +49,7 @@ namespace API_CUIDADORES.DAO
                             cuidador.cidade = dataReader["cidade"].ToString();
                             cuidador.estado = dataReader["estado"].ToString();
                             cuidador.bairro = dataReader["bairro"].ToString();
-
+				
                             cuidadores.Add(cuidador);
                         }
                     }
