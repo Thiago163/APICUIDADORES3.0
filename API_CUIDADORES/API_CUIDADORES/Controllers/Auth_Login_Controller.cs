@@ -32,7 +32,7 @@ namespace API_CUIDADORES.Controllers
             // Por exemplo, verificar as credenciais do usuário no banco de dados
 
             // Se a autenticação for bem-sucedida, você pode gerar um token JWT
-            var token = GenerateJwtToken("nome-do-usuario", "CcjwU9RgQYolvyxQQew7oCCcLJcnzUe89KWlD1Hf2BXdEQh0YKiieyFIoXea2Ig");
+            var token = GenerateJwtToken("nome", "CcjwU9RgQYolvyxQQew7oCCcLJcnzUe89KWlD1Hf2BXdEQh0YKiieyFIoXea2Ig");
 
             if (!string.IsNullOrEmpty(token))
             {
@@ -53,8 +53,8 @@ namespace API_CUIDADORES.Controllers
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Email, "email-do-usuario"),
-                new Claim(ClaimTypes.SerialNumber, "cpf-do-usuario")
+                new Claim(ClaimTypes.Email, "email"),
+                new Claim(ClaimTypes.SerialNumber, "cpf")
             };
 
             var token = new JwtSecurityToken(
@@ -88,7 +88,7 @@ namespace API_CUIDADORES.Controllers
             // Por exemplo, verificar as credenciais do cuidador no banco de dados
 
             // Se a autenticação for bem-sucedida, você pode gerar um token JWT
-            var token = GenerateJwtToken("nome-do-cuidador", "CcjwU9RgQYolvyxQQew7oCCcLJcnzUe89KWlD1Hf2BXdEQh0YKiieyFIoXea2Ig");
+            var token = GenerateJwtToken("nome", "CcjwU9RgQYolvyxQQew7oCCcLJcnzUe89KWlD1Hf2BXdEQh0YKiieyFIoXea2Ig");
 
             if (!string.IsNullOrEmpty(token))
             {
@@ -109,8 +109,8 @@ namespace API_CUIDADORES.Controllers
             var claims = new List<Claim>
             {
                 new Claim(ClaimTypes.Name, username),
-                new Claim(ClaimTypes.Email, "email-do-cuidador"),
-                new Claim(ClaimTypes.SerialNumber, "cpf-do-cuidador")
+                new Claim(ClaimTypes.Email, "email"),
+                new Claim(ClaimTypes.SerialNumber, "cpf")
             };
 
             var token = new JwtSecurityToken(
