@@ -1,5 +1,6 @@
-﻿using API_CUIDADORES.DAO;
+using API_CUIDADORES.DAO;
 using API_CUIDADORES.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
