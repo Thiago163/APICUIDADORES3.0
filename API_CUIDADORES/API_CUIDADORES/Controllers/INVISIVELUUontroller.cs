@@ -1,4 +1,4 @@
-﻿using API_CUIDADORES.DAO;
+using API_CUIDADORES.DAO;
 using API_CUIDADORES.DTO;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -10,7 +10,6 @@ namespace API_CUIDADORES.Controllers
 {
     [Route("api/invisivelusu")]
     [ApiController]
-    [Authorize]
 
     public class INVISIVELUUontroller : ControllerBase
     {
