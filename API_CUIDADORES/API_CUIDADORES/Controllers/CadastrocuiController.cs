@@ -6,7 +6,7 @@ namespace API_CUIDADORES.Controllers
 {
     namespace API_CUIDADORES.Controllers
     {
-        [Route("api/cadusu")]
+        [Route("api/cadcui")]
         [ApiController]
 
         public class CadastrocuiController : ControllerBase
