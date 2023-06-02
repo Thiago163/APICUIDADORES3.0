@@ -1,5 +1,6 @@
 using API_CUIDADORES.DAO;
 using API_CUIDADORES.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -8,7 +9,7 @@ namespace API_CUIDADORES.Controllers
     [ApiController]
     [Route("api/favoritoscui")]
     [Authorize]
-     
+
     public class FavoritosCuidadorController : ControllerBase
     {
         private FavoritosCuidadorDAO FavoritosCuidadorDAO;
