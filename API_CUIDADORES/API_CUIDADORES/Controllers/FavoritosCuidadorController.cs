@@ -7,6 +7,8 @@ namespace API_CUIDADORES.Controllers
 {
     [ApiController]
     [Route("api/favoritoscui")]
+    [Authorize]
+     
     public class FavoritosCuidadorController : ControllerBase
     {
         private FavoritosCuidadorDAO FavoritosCuidadorDAO;
