@@ -1,4 +1,4 @@
-﻿using API_CUIDADORES.DAO;
+using API_CUIDADORES.DAO;
 using API_CUIDADORES.DTO;
 using Microsoft.AspNetCore.Mvc;
 
@@ -13,10 +13,10 @@ namespace API_CUIDADORES.Controllers
         {
 
             [HttpPost]
-            public IActionResult Cadastrar(CuidadoresDTO cuidador)
+            public IActionResult Cadastrar(UsuariosDTO usuario)
             {
-                CuidadoresDAO dao = new CuidadoresDAO();
-                dao.Cadastrar(cuidador);
+                UsuariosDAO dao = new UsuariosDAO();
+                dao.Cadastrar(usuario);
                 return Ok();
             }
         }
