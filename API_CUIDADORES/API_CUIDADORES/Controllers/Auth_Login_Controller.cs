@@ -24,7 +24,7 @@ namespace API_CUIDADORES.Controllers
 
             var usuario = usuarioDAO.Login(login, senha);
 
-            if(usuario.id == 0)
+            if (usuario.id == 0)
             {
                 return BadRequest("Usuário ou senha inválidos");
             }
@@ -70,12 +70,6 @@ namespace API_CUIDADORES.Controllers
     [ApiController]
     public class AuthCuidadoresController : ControllerBase
     {
-        public readonly CuidadoresDAO cuidadoresDAO;
-
-        public AuthCuidadoresController()
-        {
-            cuidadoresDAO = new CuidadoresDAO();
-        }
 
         [HttpGet]
         [Route("Login")]
