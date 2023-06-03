@@ -26,7 +26,6 @@ namespace API_CUIDADORES.Controllers
                 c.data_de_nasc,
                 c.celular,
                 c.endereco,
-                c.cep,
                 c.email,
                 c.preco,
                 c.descricao,
