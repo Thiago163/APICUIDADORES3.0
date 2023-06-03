@@ -16,13 +16,13 @@ namespace API_CUIDADORES.DAO
 
             using (var conexao = ConnectionFactory.Build())
             {
-                var query = "SELECT ti.tipo, cui.id, cui.nome, cui.sobrenome, cui.data_de_nasc, cui.celular, cui.endereco, " +
-    "cui.preco, cui.descricao, cui.imagem, " +
-    "cui.link, sx.sexo, cui.cidade, cui.estado, cui.bairro " +
-    "FROM usuarios AS cui " +
-    "JOIN sexos AS sx ON cui.sexos_id = sx.id " +
-    "JOIN tipos AS ti ON cui.tipos_id = ti.id " +
-    "WHERE tipos_id <> 1";
+                var query = "SELECT ti.tipo, cui.id, cui.nome, cui.sobrenome, cui.data_de_nasc, cui.cpf, cui.celular, cui.endereco, " +
+                    "cui.cep, cui.email, cui.preco, cui.descricao, cui.imagem, " +
+                    "cui.link, sx.sexo, cui.cidade, cui.estado, cui.bairro " +
+                    "FROM usuarios AS cui " +
+                    "JOIN sexos AS sx ON cui.sexos_id = sx.id " +
+                    "JOIN tipos AS ti ON cui.tipos_id = ti.id " +
+                    "WHERE tipos_id <> 1";
 
                 using (var comando = new MySqlCommand(query, conexao))
                 {
@@ -38,8 +38,11 @@ namespace API_CUIDADORES.DAO
                             usuario.id = int.Parse(dataReader["id"].ToString());
                             usuario.nome = dataReader["nome"].ToString();
                             usuario.sobrenome = dataReader["sobrenome"].ToString();
+                            usuario.cpf = dataReader["cpf"].ToString();
                             usuario.celular = dataReader["celular"].ToString();
                             usuario.endereco = dataReader["endereco"].ToString();
+                            usuario.cep = dataReader["cep"].ToString();
+                            usuario.email = dataReader["email"].ToString();
                             usuario.preco = double.Parse(dataReader["preco"].ToString());
                             usuario.descricao = dataReader["descricao"].ToString();
                             usuario.data_de_nasc = dataReader.GetDateTime("data_de_nasc");
