@@ -1,4 +1,4 @@
-﻿using API_CUIDADORES.DAO;
+using API_CUIDADORES.DAO;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -15,8 +15,30 @@ namespace API_CUIDADORES.Controllers
         public IActionResult Listar()
         {
             CuidadoresDAO dao = new CuidadoresDAO();
-            var cuidador = dao.Listar();
-            return Ok(cuidador);
+            var cuidadores = dao.Listar();
+
+            // Criar uma nova lista com os campos desejados (excluindo "cpf")
+            var response = cuidadores.Select(c => new
+            {
+                c.id,
+                c.nome,
+                c.sobrenome,
+                c.data_de_nasc,
+                c.celular,
+                c.endereco,
+                c.cep,
+                c.email,
+                c.preco,
+                c.descricao,
+                c.imagem,
+                c.link,
+                c.sexo,
+                c.cidade,
+                c.estado,
+                c.bairro
+            });
+
+            return Ok(response);
         }
     }
 }
