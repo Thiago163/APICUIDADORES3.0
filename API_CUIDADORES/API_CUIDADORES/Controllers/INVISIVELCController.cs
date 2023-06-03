@@ -24,18 +24,20 @@ namespace API_CUIDADORES.Controllers
             {
                 c.tipo,
                 c.id,
+                c.cpf,
+                c.email,
                 c.nome,
                 c.sobrenome,
                 c.celular,
                 c.endereco,
                 c.preco,
                 c.descricao,
-                c.imagem,
                 c.link,
                 c.sexo,
                 c.cidade,
                 c.estado,
-                c.bairro
+                c.bairro,
+                c.imagem
             });
 
             return Ok(response);
