@@ -15,7 +15,12 @@ namespace API_CUIDADORES.DAO
 
             using (var conexao = ConnectionFactory.Build())
             {
-                var query = "SELECT * FROM cuidadores WHERE (cpf = @cpfOuEmail OR email = @cpfOuEmail) AND senha = @senha";
+               var query = "SELECT * FROM cuidadores AS cui " +
+             "JOIN sexos AS sx ON cui.sexos_id = sx.id " +
+             "JOIN tipos AS ti ON cui.tipos_id = ti.id " +
+             "WHERE (cui.cpf = @cpfOuEmail OR cui.email = @cpfOuEmail) " +
+             "AND cui.senha = @senha " +
+             "AND cui.tipos_id <> 2";
 
                 using (var comando = new MySqlCommand(query, conexao))
                 {
