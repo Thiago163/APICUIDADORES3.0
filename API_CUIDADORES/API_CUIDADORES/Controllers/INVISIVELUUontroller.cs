@@ -26,7 +26,6 @@ namespace API_CUIDADORES.Controllers
                 c.id,
                 c.nome,
                 c.sobrenome,
-                c.data_de_nasc,
                 c.celular,
                 c.endereco,
                 c.preco,
