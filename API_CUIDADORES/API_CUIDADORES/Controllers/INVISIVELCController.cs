@@ -17,8 +17,29 @@ namespace API_CUIDADORES.Controllers
         public IActionResult Listar()
         {
             INVISIVELCDAO dao = new INVISIVELCDAO();
-            var cuidador = dao.Listar();
-            return Ok(cuidador);
+            var invisivel = dao.Listar();
+
+            // Criar uma nova lista com os campos desejados (excluindo "cpf")
+            var response = invisivel.Select(c => new
+            {
+                c.tipo,
+                c.id,
+                c.nome,
+                c.sobrenome,
+                c.data_de_nasc,
+                c.celular,
+                c.endereco,
+                c.preco,
+                c.descricao,
+                c.imagem,
+                c.link,
+                c.sexo,
+                c.cidade,
+                c.estado,
+                c.bairro
+            });
+
+            return Ok(response);
         }
 
         [HttpPost]
