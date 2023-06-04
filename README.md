@@ -40,6 +40,10 @@ Utilize as rotas disponíveis em sua aplicação.
 - `/Logincui`: retorna o login de usuários.
 
 -------------------------
+- `/recentesusu`: retorna o recentes de usuários.
+- `/recentescui`: retorna o recentes de cuidadores.
+
+-------------------------
 - `/site`: controlador para o site.
 
 ## Contribuindo
