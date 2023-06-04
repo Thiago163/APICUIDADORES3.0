@@ -73,6 +73,8 @@ namespace API_CUIDADORES.DAO
             conexao.Open();
 
             var query = @"
+        DELETE FROM recentesusuarios WHERE cuidador_id IN (SELECT id FROM cuidadores WHERE tipos_id = @id);
+        DELETE FROM recentescuidadores WHERE cuidador_id IN (SELECT id FROM cuidadores WHERE tipos_id = @id);
         DELETE FROM favoritoscuidadores WHERE cuidador_id IN (SELECT id FROM cuidadores WHERE tipos_id = @id);
         DELETE FROM estrelascuidador WHERE cuidador_id IN (SELECT id FROM cuidadores WHERE tipos_id = @id);
         DELETE FROM favoritosusuarios WHERE cuidador_id IN (SELECT id FROM cuidadores WHERE tipos_id = @id);
