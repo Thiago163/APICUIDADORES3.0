@@ -35,6 +35,8 @@ Utilize as rotas disponíveis em sua aplicação.
 - `/favoritosusu`: adiciona um novo favorito para o usuário.
 - `/estrelasusu`: adiciona uma nova estrela para o usuário.
 - `/tipos`: adiciona um tipo ao usuário. Alerta: ao excluir um tipo nesta rota, pode causar mau funcionamento nas rotas cuidadores, usuários, invisívelcui e invisívelusu.
+- `/cadusu`: retorna o cadastro de cuidadores.
+- `/cadcui`: retorna o cadastro de usuários.
 -------------------------
 - `/Loginusu`: retorna o login de cuidadores.
 - `/Logincui`: retorna o login de usuários.
