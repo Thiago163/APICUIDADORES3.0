@@ -15,7 +15,7 @@ namespace API_CUIDADORES.Controllers
     [ApiController]
     public class AuthUsuariosController : ControllerBase
     {
-        [HttpGet]
+        [HttpPost]
         [Route("Login")]
         public IActionResult Login([FromForm] string login, [FromForm] string senha)
         {
@@ -71,7 +71,7 @@ namespace API_CUIDADORES.Controllers
     public class AuthCuidadoresController : ControllerBase
     {
 
-        [HttpGet]
+        [HttpPost]
         [Route("Login")]
         public IActionResult Login([FromForm] string login, [FromForm] string senha)
         {
