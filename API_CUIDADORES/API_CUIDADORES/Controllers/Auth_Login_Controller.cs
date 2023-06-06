@@ -58,7 +58,7 @@ namespace API_CUIDADORES.Controllers
                 "",
                 "",
                 claims,
-                expires: DateTime.UtcNow.AddMinutes(30),
+                expires: DateTime.UtcNow.AddMinutes(60),
                 signingCredentials: credentials
             );
 
@@ -114,7 +114,7 @@ namespace API_CUIDADORES.Controllers
                 "",
                 "",
                 claims,
-                expires: DateTime.UtcNow.AddMinutes(30),
+                expires: DateTime.UtcNow.AddMinutes(60),
                 signingCredentials: credentials
             );
 
