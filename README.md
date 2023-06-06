@@ -41,6 +41,8 @@ Utilize as rotas disponíveis em sua aplicação.
 - `/Loginusu`: retorna o login de cuidadores.
 - `/Logincui`: retorna o login de usuários.
 
+![MicrosoftTeams-image (1)](https://github.com/Thiago163/APICUIDADORES3.0/assets/101190863/722f235f-cf6c-4f7e-9ec5-608692c19bb3)
+
 -------------------------
 - `/recentesusu`: retorna o recentes de usuários.
 - `/recentescui`: retorna o recentes de cuidadores.
