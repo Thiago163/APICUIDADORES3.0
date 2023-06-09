@@ -120,7 +120,7 @@ namespace API_CUIDADORES.DAO
 
                 var query = @"INSERT INTO usuarios (cidade, sexos_id, estado, nome, sobrenome, data_de_nasc, cpf, celular,
                     endereco, cep, email, preco, senha, descricao, link, bairro, imagem)
-                  VALUES (@cidade, @sexos_id, @estado, @nome, @sobrenome, @data_de_nasc, @cpf, @celular,
+                  VALUES (@cidade, IFNULL(@sexos_id, 1), @estado, @nome, @sobrenome, @data_de_nasc, @cpf, @celular,
                           @endereco, @cep, @email, @preco, @senha, @descricao, @link, @bairro, @imagem)";
 
                 var comando = new MySqlCommand(query, conexao);
