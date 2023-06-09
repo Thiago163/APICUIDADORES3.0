@@ -133,9 +133,9 @@ INSERT INTO estrelascuidador (id, estrela, cuidador_id, usuario_id) VALUES (1, 5
 
 INSERT INTO estrelasusuario (id, estrela, cuidador_id, usuario_id) VALUES (1, 5, 2, 1), (2, 3, 2, 2);
 
-INSERT INTO recentesusuarios (id, usuario_id, cuidador_id) VALUES (1, 2, 1), (2, 1, 2);
+INSERT INTO recentesusuarios (id, usuario_id, cuidador_id) VALUES (1, 2, 3), (2, 1, 2);
 
-INSERT INTO recentescuidadores (id, usuario_id, cuidador_id) VALUES (1, 1, 1), (2, 2, 2);
+INSERT INTO recentescuidadores (id, usuario_id, cuidador_id) VALUES (1, 1, 1), (2, 2, 3);
 
 select ti.tipo, cui.id, cui.nome, cui.sobrenome, cui.data_de_nasc, cui.cpf, cui.celular, cui.endereco, 
 cui.cep, cui.email, cui.preco, cui.descricao, cui.imagem, 
