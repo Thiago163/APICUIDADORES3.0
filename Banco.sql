@@ -117,12 +117,12 @@ INSERT INTO sexos (id, sexo) VALUES (1, 'Masculino'), (2, 'Feminino'), (3, 'Não
 
 INSERT INTO usuarios (tipos_id, estado, cidade, bairro, nome, sobrenome, data_de_nasc, cpf, celular, endereco, cep, email, sexos_id, preco, senha, descricao, link, imagem)values
 (1, 'São Paulo', 'Santana de Parnaíba', 'Cururuquara', 'Luana', 'Alvez', '2021-11-05', 58854448868, 9289632897, 'estrada dos sonhos', '04522135', 'luana@gmail.com', 2, 10.10, 'pedro1samuel2', 'Meus filhos são uma peste, boa sorte.', 'https://play.google.com/store/', ''),
-(3, 'São Paulo', 'Santana de Parnaíba', 'Santana de Parnaíba', 'Desenvolvedor', 'Deste Software', '2023-01-05', 111, 9345727272, 'Indisponível', '04522135', 'criador@gmail.com', 1, 0.0, 'criador', 'Sou um desenvolvedor', 'https://cuidadores.netlify.app/', ''),
+(3, 'São Paulo', 'Santana de Parnaíba', 'Santana de Parnaíba', 'Desenvolvedor', 'Deste Software', '2023-01-05', 111, 9345727272, 'Indisponível', '11111111', 'criador@gmail.com', 1, 0.0, 'criador', 'Sou um desenvolvedor', 'https://cuidadores.netlify.app/', ''),
 (2, 'São Paulo', 'Santana de Parnaíba', 'Cajamar', 'Marcos', 'Solza', '2021-11-05', 68854448868, 9489632897, 'estrada dos tesouros', '06522135', 'marcos@gmail.com', 1, 10.10, 'pedro1samuel2', 'Meus filhos são uma peste, boa sorte.', 'https://play.google.com/store/', '');
 
 INSERT INTO cuidadores (tipos_id, estado, cidade, bairro, nome, sobrenome, data_de_nasc, cpf, celular, endereco, cep, email, sexos_id, preco, senha, descricao, link, imagem)values
 (1, 'São Paulo', 'Santana de Parnaíba', 'Cajamar', 'Luana', 'Alvez', '2021-11-05', 58854448868, 9289632897, 'estrada dos sonhos', '04522135', 'luana@gmail.com', 2, 10.10, 'pedro1samuel2', 'Sou um cuidador excelente.', 'https://play.google.com/store/', ''),
-(3, 'São Paulo', 'Santana de Parnaíba', 'Santana de Parnaíba', 'Desenvolvedor', 'Deste Software', '2023-01-05', 111, 9345727272, 'Indisponível', '04522135', 'criador@gmail.com', 1, 0.0, 'criador', 'Sou um desenvolvedor', 'https://cuidadores.netlify.app/', ''),
+(3, 'São Paulo', 'Santana de Parnaíba', 'Santana de Parnaíba', 'Desenvolvedor', 'Deste Software', '2023-01-05', 111, 9345727272, 'Indisponível', '11111111', 'criador@gmail.com', 1, 0.0, 'criador', 'Sou um desenvolvedor', 'https://cuidadores.netlify.app/', ''),
 (2, 'São Paulo', 'Santana de Parnaíba', 'Cururuquara', 'Marcos', 'Solza', '2021-11-05', 68854448868, 9489632897, 'estrada dos tesouros', '06522135', 'marcos@gmail.com', 1, 10.10, 'pedro1samuel2', 'Sou um cuidador excelente.', 'https://play.google.com/store/', '');
 
 INSERT INTO favoritosusuarios (id, usuario_id, cuidador_id) VALUES (1, 2, 1), (2, 1, 2);
