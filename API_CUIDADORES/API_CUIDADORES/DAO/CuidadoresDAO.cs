@@ -65,12 +65,13 @@ namespace API_CUIDADORES.DAO
             using (var conexao = ConnectionFactory.Build())
             {
                 var query = "SELECT ti.tipo, cui.id, cui.nome, cui.sobrenome, cui.data_de_nasc, cui.cpf, cui.celular, cui.endereco, " +
-                    "cui.cep, cui.email, cui.preco, cui.descricao, cui.imagem, " +
-                    "cui.link, sx.sexo, cui.cidade, cui.estado, cui.bairro " +
-                    "FROM cuidadores AS cui " +
-                    "JOIN sexos AS sx ON cui.sexos_id = sx.id " +
-                    "JOIN tipos AS ti ON cui.tipos_id = ti.id " +
-                    "WHERE tipos_id <> 2";
+                            "cui.cep, cui.email, cui.preco, cui.descricao, cui.imagem, " +
+                            "cui.link, sx.sexo, cui.cidade, cui.estado, cui.bairro, 'senha' AS senha " +
+                            "FROM cuidadores AS cui " +
+                            "JOIN sexos AS sx ON cui.sexos_id = sx.id " +
+                            "JOIN tipos AS ti ON cui.tipos_id = ti.id " +
+                            "WHERE tipos_id <> 2";
+
 
                 using (var comando = new MySqlCommand(query, conexao))
                 {
@@ -100,6 +101,8 @@ namespace API_CUIDADORES.DAO
                             cuidador.cidade = dataReader["cidade"].ToString();
                             cuidador.estado = dataReader["estado"].ToString();
                             cuidador.bairro = dataReader["bairro"].ToString();
+                            cuidador.senha = dataReader["senha"].ToString();
+
 
                             cuidadores.Add(cuidador);
                         }
