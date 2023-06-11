@@ -9,25 +9,26 @@ namespace API_CUIDADORES.Controllers
     [Route("api/estrelascui")]
     public class EstrelasCuidadorController : ControllerBase
     {
-        private EstrelasCuidadorDAO EstrelasCuidadorDAO;
+        private EstrelasCuidadorDAO estrelasCuidadorDAO;
+
         public EstrelasCuidadorController()
         {
-            EstrelasCuidadorDAO = new EstrelasCuidadorDAO();
+            estrelasCuidadorDAO = new EstrelasCuidadorDAO();
         }
 
         [HttpGet]
         public IActionResult Listar()
         {
-            var estrelas = EstrelasCuidadorDAO.Listar();
+            var estrelas = estrelasCuidadorDAO.Listar();
             return Ok(estrelas);
         }
 
         [HttpPost]
-        public IActionResult Cadastrar([FromBody] EstrelasCuidadorDTO EstrelasCuidadorDTO)
+        public IActionResult Cadastrar([FromBody] EstrelasCuidadorDTO estrelasCuidadorDTO)
         {
             try
             {
-                EstrelasCuidadorDAO.Cadastrar(EstrelasCuidadorDTO);
+                estrelasCuidadorDAO.Cadastrar(estrelasCuidadorDTO);
                 return Ok();
             }
             catch (Exception ex)
@@ -36,20 +37,32 @@ namespace API_CUIDADORES.Controllers
             }
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Remover(int id)
         {
-            EstrelasCuidadorDAO dao = new EstrelasCuidadorDAO();
-            dao.Remover(id);
-            return Ok();
+            try
+            {
+                estrelasCuidadorDAO.Remover(id);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
 
         [HttpPut]
-        public IActionResult Alterar(EstrelasCuidadorDTO cuidador)
+        public IActionResult Alterar(EstrelasCuidadorDTO estrelasCuidadorDTO)
         {
-            EstrelasCuidadorDAO dao = new EstrelasCuidadorDAO();
-            dao.Alterar(cuidador);
-            return Ok();
+            try
+            {
+                estrelasCuidadorDAO.Alterar(estrelasCuidadorDTO);
+                return Ok();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest(ex.Message);
+            }
         }
     }
 }
