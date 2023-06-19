@@ -16,7 +16,7 @@ namespace API_CUIDADORES.DAO
 
             var selectQuery = "SELECT re.id, c.*, ti.tipo, sx.sexo, re.usuario_id, re.cuidador_id " +
                              "FROM recentesusuarios AS re " +
-                             "JOIN usuarios AS c ON re.usuario_id = c.id " +
+                             "JOIN cuidadores AS c ON re.cuidador_id = c.id " +
                              "JOIN tipos AS ti ON c.tipos_id = ti.id " +
                              "JOIN sexos AS sx ON c.sexos_id = sx.id " +
                              "ORDER BY re.id DESC " +
