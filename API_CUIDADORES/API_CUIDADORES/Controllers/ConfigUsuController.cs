@@ -30,33 +30,20 @@ namespace API_CUIDADORES.Controllers
             }
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete]
         public IActionResult Remover(int id)
         {
-            try
-            {
-                configUsuDAO.Remover(id);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro ao remover usuário: {ex.Message}");
-            }
+            ConfigUsuDAO dao = new ConfigUsuDAO();
+            dao.Remover(id);
+            return Ok();
         }
 
-        [HttpPut("{id}")]
-        public IActionResult Alterar(int id, [FromBody] UsuariosDTO usuario)
+        [HttpPut]
+        public IActionResult Alterar(UsuariosDTO usuario)
         {
-            try
-            {
-                usuario.id = id;
-                configUsuDAO.Alterar(usuario);
-                return NoContent();
-            }
-            catch (Exception ex)
-            {
-                return BadRequest($"Erro ao alterar usuário: {ex.Message}");
-            }
+            ConfigUsuDAO dao = new ConfigUsuDAO();
+            dao.Alterar(usuario);
+            return Ok();
         }
     }
 }
