@@ -1,4 +1,4 @@
-﻿using API_CUIDADORES.DTO;
+using API_CUIDADORES.DTO;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -9,23 +9,23 @@ namespace API_CUIDADORES.DAO
 {
     public class ConfigUsuDAO
     {
-        public List<UsuariosDTO> Listar()
+        public List<UsuariosDTO> Listar(int id)
         {
             var usuarios = new List<UsuariosDTO>();
 
             using (var conexao = ConnectionFactory.Build())
             {
                 var query = "SELECT ti.tipo, cui.id, cui.nome, cui.sobrenome, cui.data_de_nasc, cui.cpf, cui.celular, cui.endereco, " +
-                            "cui.cep, cui.email, cui.preco, cui.descricao, cui.imagem, " +
-                            "cui.link, sx.sexo, cui.cidade, cui.estado, cui.bairro, 'senha' AS senha " +
-                            "FROM usuarios AS cui " +
-                            "JOIN sexos AS sx ON cui.sexos_id = sx.id " +
-                            "JOIN tipos AS ti ON cui.tipos_id = ti.id " +
-                            "WHERE cui.id = @id";
+                    "cui.cep, cui.email, cui.preco, cui.descricao, cui.imagem, " +
+                    "cui.link, sx.sexo, cui.cidade, cui.estado, cui.bairro, 'senha' AS senha " +
+                    "FROM usuarios AS cui " +
+                    "JOIN sexos AS sx ON cui.sexos_id = sx.id " +
+                    "JOIN tipos AS ti ON cui.tipos_id = ti.id " +
+                    "WHERE cui.id = @id AND cui.tipos_id <> 2";
 
                 using (var comando = new MySqlCommand(query, conexao))
                 {
-                    comando.Parameters.AddWithValue("@id", 1); // Substitua 1 pelo valor desejado para o parâmetro @id
+                    comando.Parameters.AddWithValue("@id", id);
 
                     conexao.Open();
 
