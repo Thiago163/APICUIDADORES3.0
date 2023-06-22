@@ -1,45 +1,62 @@
-﻿using API_CUIDADORES.DAO;
+using API_CUIDADORES.DAO;
 using API_CUIDADORES.DTO;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
+using System;
 
 namespace API_CUIDADORES.Controllers
 {
     [ApiController]
-    [Route("api/configusu")]
+    [Route("api/ConfigUsu")]
     public class ConfigUsuController : ControllerBase
     {
-        private readonly ConfigUsuDAO _configUsuDAO;
+        private readonly ConfigUsuDAO configUsuDAO;
 
         public ConfigUsuController()
         {
-            _configUsuDAO = new ConfigUsuDAO();
+            configUsuDAO = new ConfigUsuDAO();
         }
 
         [HttpGet]
-        public ActionResult<List<UsuariosDTO>> Listar()
+        public IActionResult Listar([FromQuery] int id)
         {
-            var usuarios = _configUsuDAO.Listar();
-            return Ok(usuarios);
+            try
+            {
+                var usuarios = configUsuDAO.Listar(id);
+                return Ok(usuarios);
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao listar usuários: {ex.Message}");
+            }
         }
 
         [HttpDelete("{id}")]
-        public ActionResult Remover(int id)
+        public IActionResult Remover(int id)
         {
-            _configUsuDAO.Remover(id);
-            return NoContent();
+            try
+            {
+                configUsuDAO.Remover(id);
+                return NoContent();
+            }
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao remover usuário: {ex.Message}");
+            }
         }
 
         [HttpPut("{id}")]
-        public ActionResult Alterar(int id, [FromBody] UsuariosDTO usuario)
+        public IActionResult Alterar(int id, [FromBody] UsuariosDTO usuario)
         {
-            if (id != usuario.id)
+            try
             {
-                return BadRequest();
+                usuario.id = id;
+                configUsuDAO.Alterar(usuario);
+                return NoContent();
             }
-
-            _configUsuDAO.Alterar(usuario);
-            return NoContent();
+            catch (Exception ex)
+            {
+                return BadRequest($"Erro ao alterar usuário: {ex.Message}");
+            }
         }
     }
 }
