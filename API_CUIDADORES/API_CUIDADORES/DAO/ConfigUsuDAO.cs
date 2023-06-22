@@ -89,7 +89,7 @@ namespace API_CUIDADORES.DAO
             var conexao = ConnectionFactory.Build();
             conexao.Open();
 
-            var query = @"UPDATE cuidadores SET 
+            var query = @"UPDATE usuarios SET 
                         tipos_id = @tipos_id,
                         nome = @nome,
                         sobrenome = @sobrenome,
@@ -135,5 +135,6 @@ namespace API_CUIDADORES.DAO
             conexao.Close();
 
         }
+
     }
 }
