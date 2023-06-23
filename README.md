@@ -28,11 +28,9 @@ Utilize as rotas disponíveis em sua aplicação.
 - `/cuidadores`: retorna a lista de cuidadores.
 - `/usuarios`: retorna a lista de usuários.
 - `/sexos`: retorna a lista de sexos disponíveis.
-- `/favoritoscui`: retorna a lista de favoritos do usuário.
 - `/estrelascui`: retorna a lista de estrelas do usuário.
 - `/invisivelcui`: retorna a lista de usuários invisíveis do cuidador.
 - `/invisivelusu`: retorna a lista de usuários invisíveis do usuário.
-- `/favoritosusu`: adiciona um novo favorito para o usuário.
 - `/estrelasusu`: adiciona uma nova estrela para o usuário.
 - `/tipos`: adiciona um tipo ao usuário. Alerta: ao excluir um tipo nesta rota, pode causar mau funcionamento nas rotas cuidadores, usuários, invisívelcui e invisívelusu.
 - `/cadusu`: retorna o cadastro de cuidadores.
@@ -48,6 +46,8 @@ Utilize as rotas disponíveis em sua aplicação.
 -------------------------
 - `/recentesusu`: retorna o recentes de usuários.
 - `/recentescui`: retorna o recentes de cuidadores.
+- `/favoritoscui`: retorna a lista de favoritos do usuário.
+- `/favoritosusu`: adiciona um novo favorito para o usuário.
 
 -------------------------
 - `/site`: controlador para o site.
