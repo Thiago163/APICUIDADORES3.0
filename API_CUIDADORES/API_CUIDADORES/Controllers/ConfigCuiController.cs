@@ -1,5 +1,6 @@
-﻿using API_CUIDADORES.DAO;
+using API_CUIDADORES.DAO;
 using API_CUIDADORES.DTO;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -7,6 +8,7 @@ namespace API_CUIDADORES.Controllers
 {
     [ApiController]
     [Route("api/ConfigCui")]
+    [Authorize]
     public class ConfigCuiController : ControllerBase
     {
         private readonly ConfigCuiDAO configCuiDAO;
