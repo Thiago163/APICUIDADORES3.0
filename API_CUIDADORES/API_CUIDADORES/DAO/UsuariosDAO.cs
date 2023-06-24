@@ -175,25 +175,25 @@ namespace API_CUIDADORES.DAO
             conexao.Open();
 
             var query = @"UPDATE usuarios SET 
-                        tipos_id = @tipos_id,
-                        nome = @nome,
-                        sobrenome = @sobrenome,
-                        cidade = @cidade,
-			            sexos_id = @sexos_id,
-			            estado = @estado,
-                        data_de_nasc = @data_de_nasc,
-                        cpf = @cpf,
-                        celular = @celular,
-                        endereco = @endereco,
-                        cep = @cep,
-                        email = @email,
-                        preco = @preco,
-                        senha = @senha,
-                        descricao = @descricao,
-			            link = @link,
-                        bairro = @bairro,
-                        imagem = @imagem
-                  WHERE id = @id";
+                        tipos_id = IFNULL(@tipos_id, 1),
+                        nome = IFNULL(@nome, nome),
+                        sobrenome = IFNULL(@sobrenome, sobrenome),
+                        cidade = IFNULL(@cidade, cidade),
+                        sexos_id = IFNULL(@sexos_id, 4),
+                        estado = IFNULL(@estado, estado),
+                        data_de_nasc = IFNULL(@data_de_nasc, data_de_nasc),
+                        cpf = IFNULL(@cpf, cpf),
+                        celular = IFNULL(@celular, celular),
+                        endereco = IFNULL(@endereco, endereco),
+                        cep = IFNULL(@cep, cep),
+                        email = IFNULL(@email, email),
+                        preco = IFNULL(@preco, preco),
+                        senha = IFNULL(@senha, senha),
+                        descricao = IFNULL(@descricao, descricao),
+                        link = IFNULL(@link, link),
+                        bairro = IFNULL(@bairro, bairro),
+                        imagem = IFNULL(@imagem, imagem)
+                WHERE id = @id";
 
             var comando = new MySqlCommand(query, conexao);
             comando.Parameters.AddWithValue("@id", usuario.id);
