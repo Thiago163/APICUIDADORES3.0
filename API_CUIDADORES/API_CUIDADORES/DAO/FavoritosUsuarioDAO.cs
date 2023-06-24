@@ -78,6 +78,26 @@ namespace API_CUIDADORES.DAO
             conexao.Close();
         }
 
+        public bool FavoritoJaExiste(FavoritosUsuarioDTO favorito)
+        {
+            var conexao = ConnectionFactory.Build();
+            conexao.Open();
+
+            var query = @"SELECT * FROM favoritosusuarios WHERE usuario_id = @usuario_id AND cuidador_id = @cuidador_id";
+
+            var comando = new MySqlCommand(query, conexao);
+            comando.Parameters.AddWithValue("@usuario_id", favorito.usuario_id);
+            comando.Parameters.AddWithValue("@cuidador_id", favorito.cuidador_id);
+
+            var resultado = comando.ExecuteReader();
+            var favoritoJaExiste = resultado.HasRows;
+
+            resultado.Close();
+            conexao.Close();
+
+            return favoritoJaExiste;
+        }
+
         public void Remover(int usuario_id, int cuidador_id)
         {
             using (var conexao = ConnectionFactory.Build())
