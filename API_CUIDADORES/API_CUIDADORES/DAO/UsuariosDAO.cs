@@ -155,6 +155,8 @@ namespace API_CUIDADORES.DAO
             conexao.Open();
 
             var query = @"
+	DELETE FROM recentescuidadores WHERE usuario_id = @id;
+        DELETE FROM recentesusuarios WHERE usuario_id = @id;
         DELETE FROM favoritoscuidadores WHERE usuario_id = @id;
         DELETE FROM estrelascuidador WHERE usuario_id = @id;
         DELETE FROM favoritosusuarios WHERE usuario_id = @id;
