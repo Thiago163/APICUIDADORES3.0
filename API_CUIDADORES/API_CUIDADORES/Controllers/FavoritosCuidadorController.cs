@@ -30,6 +30,12 @@ namespace API_CUIDADORES.Controllers
         {
             try
             {
+                var favoritoJaExiste = FavoritosCuidadorDAO.FavoritoJaExiste(FavoritosCuidadorDTO);
+
+                if (favoritoJaExiste)
+                {
+                    return Ok();
+                }
                 FavoritosCuidadorDAO.Cadastrar(FavoritosCuidadorDTO);
                 return Ok();
             }
