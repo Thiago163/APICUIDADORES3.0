@@ -121,7 +121,7 @@ namespace API_CUIDADORES.DAO
 
                 var query = @"INSERT INTO cuidadores (cidade, sexos_id, estado, nome, sobrenome, data_de_nasc, cpf, celular,
                     endereco, cep, email, preco, senha, descricao, link, bairro, imagem)
-                  VALUES (@cidade, IFNULL(@sexos_id, 1), @estado, @nome, @sobrenome, @data_de_nasc, @cpf, @celular,
+                  VALUES (@cidade, IFNULL(@sexos_id, 4), @estado, @nome, @sobrenome, @data_de_nasc, @cpf, @celular,
                           @endereco, @cep, @email, @preco, @senha, @descricao, @link, @bairro, @imagem)";
 
                 var comando = new MySqlCommand(query, conexao);
@@ -182,7 +182,7 @@ namespace API_CUIDADORES.DAO
                         nome = IFNULL(@nome, nome),
                         sobrenome = IFNULL(@sobrenome, sobrenome),
                         cidade = IFNULL(@cidade, cidade),
-                        sexos_id = IFNULL(@sexos_id, 4),
+                        sexos_id = IFNULL(@sexos_id, sexos_id),
                         estado = IFNULL(@estado, estado),
                         data_de_nasc = IFNULL(@data_de_nasc, data_de_nasc),
                         cpf = IFNULL(@cpf, cpf),
